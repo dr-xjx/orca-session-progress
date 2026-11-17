@@ -1,0 +1,48 @@
+{
+  "manifestVersion": 2,
+  "id": "session-progress",
+  "name": "Session Progress",
+  "version": "0.1.0",
+  "description": "Shows what the focused workspace's agent is doing now, how long it has been running, and its own todo plan as a task tree, read from the session files it already writes.",
+  "author": {
+    "name": "jingxuanxie",
+    "url": "https://github.com/dr-xjx"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/dr-xjx/orca-session-progress",
+  "homepage": "https://github.com/dr-xjx/orca-session-progress",
+  "icon": "assets/icon.png",
+  "screenshots": [
+    {
+      "path": "assets/screenshot.png",
+      "alt": "The Session Progress panel with a status line and a phased task tree, the current task highlighted",
+      "caption": "Status line and task tree, read from the agent's own plan",
+      "theme": "dark"
+    }
+  ],
+  "engines": {
+    "orca": ">=1.4.248"
+  },
+  "execution": "trusted-worker",
+  "pluginApi": 1,
+  "main": "src/worker.ts",
+  "contributes": {
+    "panels": [
+      {
+        "id": "session-progress",
+        "title": "会话进度",
+        "icon": "activity",
+        "entry": "src/panel.tsx",
+        "ui": "components"
+      }
+    ]
+  },
+  "capabilities": [
+    {
+      "kind": "workspace:read"
+    },
+    {
+      "kind": "agent:read"
+    }
+  ]
+}
